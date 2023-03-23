@@ -22,7 +22,7 @@ namespace com.recursiverhapsody
                 EditorUtility.SetDirty(ro.ResultAsset);
                 AssetDatabase.Refresh();
                 loadingInProgress = false;
-            });
+            }, OnError);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace com.recursiverhapsody
                     AssetDatabase.Refresh();
                     loadingInProgress = false;
                 });
-            });
+            }, OnError);
         }
     }
 

@@ -16,7 +16,7 @@ namespace com.recursiverhapsody
         [TextArea(3, 10)]
         public string Prompt;
 
-        public void SendRequest(Action<ChatResponse> action = null)
+        public void SendRequest(Action<ChatResponse> action = null, Action<string> error = null)
         {
             if (APIKey == null)
             {
@@ -34,7 +34,7 @@ namespace com.recursiverhapsody
                 }
             });
 
-            request.SendRequest(action);
+            request.SendRequest(action, error);
         }
     }
 }

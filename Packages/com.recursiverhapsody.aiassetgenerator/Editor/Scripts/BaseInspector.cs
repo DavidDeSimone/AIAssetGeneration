@@ -51,6 +51,12 @@ namespace com.recursiverhapsody
             yield return "success";
         }
 
+        protected void OnError(string error)
+        {
+            var loadingBar = inspector.Q("Request_Progress") as ProgressBar;
+            loadingBar.style.display = DisplayStyle.None;
+        }
+
         public void GenerateClicked()
         {
             var loadingBar = inspector.Q("Request_Progress") as ProgressBar;
@@ -58,7 +64,7 @@ namespace com.recursiverhapsody
             OnGenerateClicked();
 
             loadingInProgress = true;
-            BaseOpenAIRequest<ChatResponse>.StartBackgroundTask<string>(AdvanceLoadingBar());
+            BaseOpenAIRequest<ChatResponse>.StartBackgroundTask<string>(AdvanceLoadingBar(), null, OnError);
         }
 
         public abstract void OnGenerateClicked();

@@ -43,7 +43,7 @@ namespace com.recursiverhapsody
                 {
                     ProcessImage(ro, result.data[i].url, i);
                 }
-            });
+            }, OnError);
         }
     }
 

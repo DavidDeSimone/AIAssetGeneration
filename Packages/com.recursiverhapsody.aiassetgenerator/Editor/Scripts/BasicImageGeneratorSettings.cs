@@ -6,19 +6,14 @@ using System;
 
 namespace com.recursiverhapsody
 {
-    // @TODO(DDS) Make a version that always dumps the image to a dir
-    // that should be the default. Inplace should be specialized.
     [CreateAssetMenu(menuName = "RecursiveRhapsody/Basic/ImageGeneratorSettings")]
     public class BasicImageGeneratorSettings : BaseGeneratorSettings, IGeneratorSettings<ImageResponse>
     {
         public Texture2D ResultAsset;
         [TextArea(3, 10)]
         public string Prompt;
-        // @TODO
-        // Used for always-add portion
-        // public DefaultAsset Result;
 
-        public void SendRequest(Action<ImageResponse> action = null)
+        public void SendRequest(Action<ImageResponse> action = null, Action<string> error = null)
         {
             if (APIKey == null)
             {
@@ -29,7 +24,7 @@ namespace com.recursiverhapsody
                 prompt = Prompt,
             });
 
-            request.SendRequest(action);
+            request.SendRequest(action, error);
         }
     }
 }

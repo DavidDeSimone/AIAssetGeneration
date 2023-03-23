@@ -9,7 +9,7 @@ namespace com.recursiverhapsody
     public interface IGeneratorSettings<T>
     where T: class
     {
-        public void SendRequest(Action<T> action = null);
+        public void SendRequest(Action<T> action = null, Action<string> error = null);
     }
 
     public class BaseGeneratorSettings : ScriptableObject

@@ -12,7 +12,7 @@ namespace com.recursiverhapsody
         public Texture2D ReferenceAsset;
         public Texture2D ResultAsset;
 
-        public void SendRequest(Action<ImageResponse> action = null)
+        public void SendRequest(Action<ImageResponse> action = null, Action<string> error = null)
         {
             if (APIKey == null)
             {
@@ -23,7 +23,7 @@ namespace com.recursiverhapsody
                 image = ReferenceAsset,
             });
 
-            request.SendRequest(action);
+            request.SendRequest(action, error);
         }
     }
 }

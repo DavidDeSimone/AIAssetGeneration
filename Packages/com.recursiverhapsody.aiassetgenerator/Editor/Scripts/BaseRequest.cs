@@ -13,7 +13,7 @@ namespace com.recursiverhapsody
     public interface IOpenAIRequest<T> 
     where T: class
     {
-        public void SendRequest(Action<T> action);
+        public void SendRequest(Action<T> action, Action<string> error);
     }
     public abstract class BaseOpenAIRequest<T> : IOpenAIRequest<T>
     where T: class
@@ -32,7 +32,7 @@ namespace com.recursiverhapsody
 
         protected abstract UnityWebRequest getWebRequest();
 
-        public static void StartBackgroundTask<TReturn>(IEnumerator update, Action<TReturn> end = null)
+        public static void StartBackgroundTask<TReturn>(IEnumerator update, Action<TReturn> end = null, Action<string> error = null)
         where TReturn: class
         {
             EditorApplication.CallbackFunction closureCallback = null;
@@ -53,10 +53,10 @@ namespace com.recursiverhapsody
                 }
                 catch (Exception ex)
                 {
-                    // if (end != null)
-                    // {
-                        // end(ex.ToString());
-                    // }
+                    if (error != null)
+                    {
+                        error(ex.ToString());
+                    }
 
                     Debug.LogException(ex);
                     EditorApplication.update -= closureCallback;
@@ -66,9 +66,9 @@ namespace com.recursiverhapsody
             EditorApplication.update += closureCallback;
         }
 
-        public void SendRequest(Action<T> action = null)
+        public void SendRequest(Action<T> action = null, Action<string> error = null)
         {
-            StartBackgroundTask<T>(Request(), action);
+            StartBackgroundTask<T>(Request(), action, error);
         }
 
         private IEnumerator Request()
@@ -104,9 +104,9 @@ namespace com.recursiverhapsody
 
         }
 
-        public static void RequestImage(string url, Action<Texture2D> action = null)
+        public static void RequestImage(string url, Action<Texture2D> action = null, Action<string> error = null)
         {
-            StartBackgroundTask(RequestImage(url), action);
+            StartBackgroundTask(RequestImage(url), action, error);
         }
 
         private static IEnumerator RequestImage(string url)
