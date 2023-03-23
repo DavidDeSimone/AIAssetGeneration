@@ -7,15 +7,16 @@ using System.Collections.Generic;
 
 namespace com.recursiverhapsody
 {
-    [CustomEditor(typeof(GlobalGeneratorSettings))]
-    public class GlobalGeneratorSettings_Inspector : Editor
+    [CustomEditor(typeof(BasicTextGeneratorSettings))]
+    public class BasicTextGeneratorSettings_Inspector : Editor
     {
 
         public VisualTreeAsset m_InspectorXML;
+        private VisualElement inspector;
 
         public override VisualElement CreateInspectorGUI()
         {
-            var inspector = new VisualElement();
+            inspector = new VisualElement();
             m_InspectorXML.CloneTree(inspector);
 
             var inspectorFoldout = inspector.Q("Default_Inspector");
@@ -33,17 +34,24 @@ namespace com.recursiverhapsody
             Debug.Log("On Click..." + prompt);
             var apiKeyAsset = serializedObject.FindProperty("APIKeyPath").objectReferenceValue as TextAsset;
 
-            var request = new ChatOpenAIRequest(apiKeyAsset.text, new ChatOpenAIRequest.Parameters () {
+            var request = new ChatOpenAIRequest(apiKeyAsset.text, new ChatParameters () {
                 model = ChatModel.ChatGPT_3_5,
-                messages = new List<ChatOpenAIRequest.Message>() {
-                    new ChatOpenAIRequest.Message() {
+                messages = new List<Message>() {
+                    new Message() {
                         role = Roles.User,
                         content = prompt,
                     }
                 }
             });
             // EditorUtility.DisplayProgressBar("Simple Progress Bar", "Doing some work...", 0.5f);
-            request.SendRequest();
+            request.SendRequest(delegate(string result) {
+                Debug.Log("Looped Back " + result);
+                var label = inspector.Q("Result_Box") as Label;
+                label.text = result;
+
+
+
+            });
             // EditorUtility.ClearProgressBar();
         }
     }

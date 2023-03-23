@@ -10,23 +10,13 @@ using System.Text;
 
 namespace com.recursiverhapsody
 {
-    public class ChatModel
+    public interface IOpenAIRequest<T> 
+    where T: class
     {
-        public const string ChatGPT_3_5 = "gpt-3.5-turbo";
-        public const string Davinci_3 = "text-davinci-003";
+        public void SendRequest(Action<T> action);
     }
-
-    public class Roles
-    {
-        public const string User = "user";
-        public const string System = "system";
-        public const string Assistant = "assistant";
-    }
-
-    public interface IOpenAIRequest {
-        public IEnumerator Request();
-    }
-    public abstract class BaseOpenAIRequest : IOpenAIRequest
+    public abstract class BaseOpenAIRequest<T> : IOpenAIRequest<T>
+    where T: class
     {
         protected string apiKey;
         public BaseOpenAIRequest(string apiKey)
@@ -42,7 +32,7 @@ namespace com.recursiverhapsody
 
         protected abstract UnityWebRequest getWebRequest();
 
-        public static void StartBackgroundTask(IEnumerator update, Action end = null)
+        public static void StartBackgroundTask(IEnumerator update, Action<T> end = null)
         {
             EditorApplication.CallbackFunction closureCallback = null;
 
@@ -54,7 +44,7 @@ namespace com.recursiverhapsody
                     {
                         if (end != null)
                         {
-                            end();
+                            end(update.Current as T);
                         }
 
                         EditorApplication.update -= closureCallback;
@@ -62,10 +52,10 @@ namespace com.recursiverhapsody
                 }
                 catch (Exception ex)
                 {
-                    if (end != null)
-                    {
-                        end();
-                    }
+                    // if (end != null)
+                    // {
+                        // end(ex.ToString());
+                    // }
 
                     Debug.LogException(ex);
                     EditorApplication.update -= closureCallback;
@@ -75,12 +65,12 @@ namespace com.recursiverhapsody
             EditorApplication.update += closureCallback;
         }
 
-        public void SendRequest()
+        public void SendRequest(Action<T> action = null)
         {
-            StartBackgroundTask(Request());
+            StartBackgroundTask(Request(), action);
         }
 
-        public IEnumerator Request()
+        private IEnumerator Request()
         {
             Debug.Log("Requesting.....");
 
@@ -98,8 +88,6 @@ namespace com.recursiverhapsody
                     yield return null;
                 }
 
-                // EditorUtility.ClearProgressBar();
-
                 switch (webRequest.result)
                 {
                     case UnityWebRequest.Result.ConnectionError:
@@ -111,47 +99,13 @@ namespace com.recursiverhapsody
                         break;
                     case UnityWebRequest.Result.Success:
                         Debug.Log(webRequest.downloadHandler.text);
+                        yield return webRequest.downloadHandler.text;
                         // var responseJson = JsonUtility.FromJson<T>(webRequest.downloadHandler.text);
                         // callback(responseJson);
                         break;
                 }
             }
 
-        }
-    }
-
-    public class ChatOpenAIRequest : BaseOpenAIRequest 
-    {
-        [Serializable]
-        public class Message
-        {
-            public string role;
-            public string content;
-        }
-        // @TODO make this a builder pattern
-        [Serializable]
-        public class Parameters
-        {
-            public string model;
-            public List<Message> messages;
-        }
-
-        protected ChatOpenAIRequest.Parameters parameters;
-
-        public ChatOpenAIRequest(string apiKey, ChatOpenAIRequest.Parameters parameters) : base(apiKey) 
-        {
-            this.parameters = parameters;
-        }
-
-        protected override UnityWebRequest getWebRequest()
-        {
-            var json = JsonUtility.ToJson(parameters);
-            Debug.Log(json);
-            var request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST");
-            var bodyRaw = Encoding.UTF8.GetBytes(json);
-            request.uploadHandler = (UploadHandler) new UploadHandlerRaw(bodyRaw);
-
-            return request;
         }
     }
 }
