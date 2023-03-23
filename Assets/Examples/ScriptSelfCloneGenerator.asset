@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db48bfbc98e8f46dda9c5b1b9c7578d6, type: 3}
-  m_Name: ScriptGenerator
+  m_Name: ScriptSelfCloneGenerator
   m_EditorClassIdentifier: 
   Model: 0
-  ResultAsset: {fileID: 11500000, guid: 9626d33a0f1fa4df3a8ab30166ee57d6, type: 3}
-  Prompt: 'Write a monobehavior that will change the tint of a game object. The game
-    object has a shader attached to it''s renderer that has a _TintColor variable.
-    This color should change over time, from blue to red back to blue. '
+  ResultAsset: {fileID: 11500000, guid: 1a47c99fe14294bc8843a862a8ad5b17, type: 3}
+  Prompt: 'Write a monobehavior that will make a smaller copy of itself, and have
+    that smaller object rotate around the parent object like a planet, in the XZ
+    plane. This should only happen a maximum of 5 times. '

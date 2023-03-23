@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5f940b92e33541b1b01c56a1a9773b6, type: 3}
-  m_Name: New Multi Image Generator Settings
+  m_Script: {fileID: 11500000, guid: b5ef7353a1f186f40bbf97937db7e34a, type: 3}
+  m_Name: New Shader Generator Settings
   m_EditorClassIdentifier: 
-  NumberOfImages: 1
-  ImageSize: 0
+  Model: 0
+  ResultAsset: {fileID: 0}
   OutputDirectory: {fileID: 102900000, guid: 570c62c89d5fa48a0b835a4dd4365b6c, type: 3}
-  Prompt: 
+  Prompt: 'Write me a unity shader that will tint an object orange. '
