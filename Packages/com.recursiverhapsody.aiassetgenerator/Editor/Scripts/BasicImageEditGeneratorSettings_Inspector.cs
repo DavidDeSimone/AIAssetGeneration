@@ -8,27 +8,9 @@ using System.IO;
 namespace com.recursiverhapsody
 {
     [CustomEditor(typeof(BasicImageEditGeneratorSettings))]
-    public class BasicImageEditGeneratorSettings_Inspector : Editor
+    public class BasicImageEditGeneratorSettings_Inspector : BaseInspector
     {
-
-        public VisualTreeAsset m_InspectorXML;
-        private VisualElement inspector;
-
-        public override VisualElement CreateInspectorGUI()
-        {
-            inspector = new VisualElement();
-            m_InspectorXML.CloneTree(inspector);
-
-            var inspectorFoldout = inspector.Q("Default_Inspector");
-            InspectorElement.FillDefaultInspector(inspectorFoldout, serializedObject, this);
-
-            var button = inspector.Query("Generate_Button").First() as Button;
-            button.clicked += OnGenerateClicked;
-
-            return inspector;
-        }
-
-        public void OnGenerateClicked()
+        public override void OnGenerateClicked()
         {
             var ro = serializedObject.targetObject as BasicImageEditGeneratorSettings;
             ro.SendRequest(delegate(ImageResponse result) {
@@ -39,6 +21,7 @@ namespace com.recursiverhapsody
                     File.WriteAllBytes(AssetDatabase.GetAssetPath(ro.ResultAsset), tex.EncodeToPNG());
                     EditorUtility.SetDirty(ro.ResultAsset);
                     AssetDatabase.Refresh();
+                    loadingInProgress = false;
                 });
             });
         }

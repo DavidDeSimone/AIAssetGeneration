@@ -8,27 +8,9 @@ using System.IO;
 namespace com.recursiverhapsody
 {
     [CustomEditor(typeof(ShaderGeneratorSettings))]
-    public class ShaderGeneratorSettings_Inspector : Editor
+    public class ShaderGeneratorSettings_Inspector : BaseInspector
     {
-
-        public VisualTreeAsset m_InspectorXML;
-        private VisualElement inspector;
-
-        public override VisualElement CreateInspectorGUI()
-        {
-            inspector = new VisualElement();
-            m_InspectorXML.CloneTree(inspector);
-
-            var inspectorFoldout = inspector.Q("Default_Inspector");
-            InspectorElement.FillDefaultInspector(inspectorFoldout, serializedObject, this);
-
-            var button = inspector.Query("Generate_Button").First() as Button;
-            button.clicked += OnGenerateClicked;
-
-            return inspector;
-        }
-
-        public void OnGenerateClicked()
+        public override void OnGenerateClicked()
         {
             var ro = serializedObject.targetObject as ShaderGeneratorSettings;
             ro.SendRequest(delegate(ChatResponse result) {
@@ -38,8 +20,8 @@ namespace com.recursiverhapsody
 
                 File.WriteAllText(AssetDatabase.GetAssetPath(ro.ResultAsset), resultText);
                 EditorUtility.SetDirty(ro.ResultAsset);
+                loadingInProgress = false;
             });
         }
     }
-
 }
