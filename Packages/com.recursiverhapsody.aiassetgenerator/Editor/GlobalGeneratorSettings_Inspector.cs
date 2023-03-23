@@ -29,6 +29,10 @@ namespace com.recursiverhapsody
         public void OnGenerateClicked()
         {
             Debug.Log("On Click..." + serializedObject.FindProperty("Prompt").stringValue);
+            var apiKeyAsset = serializedObject.FindProperty("APIKeyPath").objectReferenceValue as TextAsset;
+
+            var request = new ChatOpenAIRequest(apiKeyAsset.text);
+            request.Request().Wait();
         }
     }
 

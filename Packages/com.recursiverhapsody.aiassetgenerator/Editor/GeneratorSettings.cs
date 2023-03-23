@@ -8,7 +8,7 @@ namespace com.recursiverhapsody
     [CreateAssetMenu(menuName = "RecursiveRhapsody/GlobalGeneratorSettings")]
     public class GlobalGeneratorSettings : ScriptableObject
     {
-        public TextAsset APIKey;
+        public TextAsset APIKeyPath;
         [TextArea(3, 10)]
         public string Prompt;
     }
