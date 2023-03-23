@@ -32,7 +32,8 @@ namespace com.recursiverhapsody
 
         protected abstract UnityWebRequest getWebRequest();
 
-        public static void StartBackgroundTask(IEnumerator update, Action<T> end = null)
+        public static void StartBackgroundTask<TReturn>(IEnumerator update, Action<TReturn> end = null)
+        where TReturn: class
         {
             EditorApplication.CallbackFunction closureCallback = null;
 
@@ -44,7 +45,7 @@ namespace com.recursiverhapsody
                     {
                         if (end != null)
                         {
-                            end(update.Current as T);
+                            end(update.Current as TReturn);
                         }
 
                         EditorApplication.update -= closureCallback;
@@ -67,7 +68,7 @@ namespace com.recursiverhapsody
 
         public void SendRequest(Action<T> action = null)
         {
-            StartBackgroundTask(Request(), action);
+            StartBackgroundTask<T>(Request(), action);
         }
 
         private IEnumerator Request()
@@ -101,6 +102,31 @@ namespace com.recursiverhapsody
                 }
             }
 
+        }
+
+        public static void RequestImage(string url, Action<Texture2D> action = null)
+        {
+            StartBackgroundTask(RequestImage(url), action);
+        }
+
+        private static IEnumerator RequestImage(string url)
+        {
+            var webRequest = UnityWebRequestTexture.GetTexture(url);
+            yield return webRequest.SendWebRequest();
+            while (webRequest.isDone == false)
+            {
+                yield return null;
+            }
+            
+            if(webRequest.isNetworkError || webRequest.isHttpError)
+            {
+                Debug.Log(webRequest.error);
+            }
+            else
+            {
+                yield return ((DownloadHandlerTexture) webRequest.downloadHandler).texture;
+            }
+                // YourRawImage.texture = ((DownloadHandlerTexture) webRequest.downloadHandler).texture;
         }
     }
 }

@@ -13,4 +13,19 @@ namespace com.recursiverhapsody
         public const string System = "system";
         public const string Assistant = "assistant";
     }
+
+    public class BasicImageSizes
+    {
+        public const string ImageSize_64_64 = "64x64";
+        public const string ImageSize_128_128 = "128x128";
+        public const string ImageSize_256_256 = "256x256";
+        public const string ImageSize_512_512 = "512x512";
+        public const string ImageSize_1024_1024 = "1024x1024";
+    }
+
+    public class ImageResponseFormat
+    {
+        public const string Url = "url";
+        public const string B64_Json = "b64_json";
+    }
 }
