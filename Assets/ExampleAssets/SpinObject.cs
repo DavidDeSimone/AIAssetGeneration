@@ -1,13 +1,13 @@
 
 
 using UnityEngine;
-
+ 
 public class SpinObject : MonoBehaviour
 {
-    private float scaleFactor = 0.01f;
-
+    public float rotationSpeed = 10f;
+ 
     void Update()
     {
-        transform.localScale += new Vector3(scaleFactor, scaleFactor, scaleFactor);
+        transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
     }
 }

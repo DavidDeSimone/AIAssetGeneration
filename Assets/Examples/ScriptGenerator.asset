@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ScriptGenerator
   m_EditorClassIdentifier: 
   ResultAsset: {fileID: 11500000, guid: 5205a7e9d610e481e8b607f1d38d29d0, type: 3}
-  Prompt: 'Write a monobehavior that will slowly scale  a game object up in size. '
+  Prompt: Write a monobehavior that will slowly rotate  a game object.
