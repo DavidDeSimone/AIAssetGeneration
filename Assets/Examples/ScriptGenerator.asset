@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db48bfbc98e8f46dda9c5b1b9c7578d6, type: 3}
+  m_Name: ScriptGenerator
+  m_EditorClassIdentifier: 
+  ResultAsset: {fileID: 11500000, guid: 5205a7e9d610e481e8b607f1d38d29d0, type: 3}
+  Prompt: 'Write a monobehavior that will spin a game object in place. '

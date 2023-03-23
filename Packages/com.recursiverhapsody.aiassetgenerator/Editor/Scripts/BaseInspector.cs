@@ -16,6 +16,10 @@ namespace com.recursiverhapsody
 
         public override VisualElement CreateInspectorGUI()
         {
+            if (m_InspectorXML == null) {
+                return new VisualElement();
+            }
+
             inspector = new VisualElement();
             m_InspectorXML.CloneTree(inspector);
 
@@ -60,5 +64,4 @@ namespace com.recursiverhapsody
 
         public abstract void OnGenerateClicked();
     }
-
 }

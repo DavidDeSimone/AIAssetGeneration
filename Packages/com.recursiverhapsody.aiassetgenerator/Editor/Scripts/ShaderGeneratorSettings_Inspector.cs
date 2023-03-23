@@ -20,6 +20,7 @@ namespace com.recursiverhapsody
 
                 File.WriteAllText(AssetDatabase.GetAssetPath(ro.ResultAsset), resultText);
                 EditorUtility.SetDirty(ro.ResultAsset);
+                AssetDatabase.Refresh();
                 loadingInProgress = false;
             });
         }

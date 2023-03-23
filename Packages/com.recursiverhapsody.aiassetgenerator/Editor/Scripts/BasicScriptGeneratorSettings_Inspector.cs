@@ -1,3 +1,4 @@
+//BasicScriptGeneratorSettings
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -11,13 +12,12 @@ using System.Text;
 
 namespace com.recursiverhapsody
 {
-    [CustomEditor(typeof(BasicTextGeneratorSettings))]
-    public class BasicTextGeneratorSettings_Inspector : BaseInspector
+    [CustomEditor(typeof(BasicScriptGeneratorSettings))]
+    public class BasicScriptGeneratorSettings_Inspector : BaseInspector
     {
-
         public override void OnGenerateClicked()
         {
-            var ro = serializedObject.targetObject as BasicTextGeneratorSettings;
+            var ro = serializedObject.targetObject as BasicScriptGeneratorSettings;
             ro.SendRequest(delegate(ChatResponse result) {
                 var resultText = result.choices[0].message.content;
                 var label = inspector.Q("Result_Box") as TextField;

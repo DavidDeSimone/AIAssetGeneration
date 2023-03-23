@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea78a33fc4457c4a810d36df414c4a9, type: 3}
-  m_Name: New Basic Image Generator Settings
+  m_Name: TextureGenerator
   m_EditorClassIdentifier: 
   ResultAsset: {fileID: 2800000, guid: 18e26e3d2c7be0a428aec53d80db0d78, type: 3}
   Prompt: 'Generate a 2D texture. This texture will be applied to a 3D object. This
     texture will have a repeating pattern and will take up the entire available pixel
-    space. This texture should have a minecraft-style stone pattern. '
+    space. This texture should have a tiger stripe pattern. '
