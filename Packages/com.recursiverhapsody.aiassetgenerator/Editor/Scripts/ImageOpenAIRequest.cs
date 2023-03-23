@@ -24,24 +24,6 @@ namespace com.recursiverhapsody
         public List<ImageData> data;
     }
 
-    // [Serializable]
-    // public class Message
-    // {
-    //     public string role;
-    //     public string content;
-    // }
-
-    /*
-{
-  "created": 1679371410,
-  "data": [
-    {
-      "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-twkJpIyjQwyI4OLwbJLC3Hwc/user-s3Dsdveu7dZPegmFtCkX6Kgz/img-h77l3bn2ojPvi89fvBMrBWyI.png?st=2023-03-21T03%3A03%3A30Z&se=2023-03-21T05%3A03%3A30Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-21T03%3A41%3A03Z&ske=2023-03-22T03%3A41%3A03Z&sks=b&skv=2021-08-06&sig=X0JKC4ir5K9AzvzYrVh9VPaSRmQ9i/Gw1PG7kI6aaRM%3D"
-    }
-  ]
-}
-*/
-
     [Serializable]
     public class ImageParameters
     {

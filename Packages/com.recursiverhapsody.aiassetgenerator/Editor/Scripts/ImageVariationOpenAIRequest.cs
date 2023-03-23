@@ -13,21 +13,19 @@ using System.IO;
 namespace com.recursiverhapsody
 {
     [Serializable]
-    public class ImageEditParameters
+    public class ImageVariationParameters
     {
-        public string prompt;
         public Texture2D image;
-        public Texture2D mask;
         public int n = 1;
         public string size = BasicImageSizes.ImageSize_1024_1024;
         public string response_format = ImageResponseFormat.Url;
     }
 
-    public class ImageEditOpenAIRequest : BaseOpenAIRequest<ImageResponse>
+    public class ImageVariationOpenAIRequest : BaseOpenAIRequest<ImageResponse>
     {
-        protected ImageEditParameters parameters;
+        protected ImageVariationParameters parameters;
 
-        public ImageEditOpenAIRequest(string apiKey, ImageEditParameters parameters) : base(apiKey) 
+        public ImageVariationOpenAIRequest(string apiKey, ImageVariationParameters parameters) : base(apiKey) 
         {
             this.parameters = parameters;
         }
@@ -42,17 +40,11 @@ namespace com.recursiverhapsody
             var bytes = File.ReadAllBytes(AssetDatabase.GetAssetPath(parameters.image));
             var form = new WWWForm();
             form.AddBinaryData("image", bytes, "image.png", "image/png");
-            form.AddField("prompt", parameters.prompt);
-
-            if (parameters.mask != null) {
-                var maskBytes = File.ReadAllBytes(AssetDatabase.GetAssetPath(parameters.mask));
-                form.AddBinaryData("mask", maskBytes, "mask.png", "image/png");
-            }
             form.AddField("n", parameters.n);
             form.AddField("size", parameters.size);
             form.AddField("response_format", parameters.response_format);
 
-            var request = UnityWebRequest.Post("https://api.openai.com/v1/images/edits", form);            
+            var request = UnityWebRequest.Post("https://api.openai.com/v1/images/variations", form);            
             return request;
         }
     }

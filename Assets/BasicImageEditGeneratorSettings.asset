@@ -15,4 +15,4 @@ MonoBehaviour:
   APIKey: {fileID: 4900000, guid: 2d8f1071f4b124d48a156a75e7a6897c, type: 3}
   ReferenceAsset: {fileID: 2800000, guid: 860da3451a7b546a8af2da9f7a923cd9, type: 3}
   ResultAsset: {fileID: 2800000, guid: a228f3a8a236e4f3a839332a3397005d, type: 3}
-  Prompt: Change this 16 bit spaceship from gray to blue
+  Prompt: Change this 16 bit spaceship to a 32bit spaceship
