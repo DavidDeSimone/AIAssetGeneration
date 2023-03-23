@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NumberOfImages: 0
   ImageSize: 0
-  OutputDirectory: {fileID: 0}
+  OutputDirectory: {fileID: 102900000, guid: 570c62c89d5fa48a0b835a4dd4365b6c, type: 3}
   Prompt: 
