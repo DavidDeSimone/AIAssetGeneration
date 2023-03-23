@@ -1,4 +1,4 @@
-// Derived from https://github.com/keijiro/AICommand/blob/main/Assets/Editor/AIGeneratorSettings.cs
+// Derived from https://github.com/keijiro/AICommand/blob/main/Assets/Editor/AICommandSettings.cs
 // under permissive unlicense license. Credit to keijiro
 
 using UnityEngine;
@@ -25,6 +25,8 @@ namespace com.recursiverhapsody {
             var settings = AIGeneratorSettings.instance;
 
             var key = settings.apiKey;
+            EditorGUI.BeginChangeCheck();
+
             EditorGUI.BeginChangeCheck();
 
             key = EditorGUILayout.TextField("API Key", key);
