@@ -8,8 +8,11 @@ namespace com.recursiverhapsody
 {
     public enum ImageSelectionSize
     {
+        [InspectorName("1024x1024")]
         x1024x1024,
+        [InspectorName("512x512")]
         x512x512,
+        [InspectorName("256x256")]
         x256x256,
     }
 
@@ -18,8 +21,8 @@ namespace com.recursiverhapsody
     public class MultiImageGeneratorSettings : BaseGeneratorSettings, IGeneratorSettings<ImageResponse>
     {
         [Range(1,4)]
-        public int NumberOfImages;
-        public ImageSelectionSize ImageSize;
+        public int NumberOfImages = 1;
+        public ImageSelectionSize ImageSize = ImageSelectionSize.x1024x1024;
         public DefaultAsset OutputDirectory;
         [TextArea(3, 10)]
         public string Prompt;
