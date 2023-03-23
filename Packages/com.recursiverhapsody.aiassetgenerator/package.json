@@ -2,15 +2,13 @@
   "name": "com.recursiverhapsody.aiassetgenerator",
   "version": "0.1.0",
   "displayName": "AI Asset Generator",
-  "description": "This is an example package",
-  "unity": "2021.1",
+  "description": "Generate AI Assets with OpenAI.",
+  "unity": "2020.1",
   "unityRelease": "0b5",
   "documentationUrl": "https://example.com/",
   "changelogUrl": "https://example.com/changelog.html",
   "licensesUrl": "https://example.com/licensing.html",
-  "dependencies": {
- },
- "keywords": [
+  "keywords": [
     "keyword1",
     "keyword2",
     "keyword3"
