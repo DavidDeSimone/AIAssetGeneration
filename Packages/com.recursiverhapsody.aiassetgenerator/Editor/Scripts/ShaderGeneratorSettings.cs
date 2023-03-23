@@ -8,11 +8,13 @@ using System.IO;
 namespace com.recursiverhapsody
 {
 
-    [CreateAssetMenu(menuName = "RecursiveRhapsody/ShaderGeneratorSettings")]
+    [CreateAssetMenu(menuName = "RecursiveRhapsody/Basic/ShaderGeneratorSettings")]
     public class ShaderGeneratorSettings : BaseGeneratorSettings, IGeneratorSettings<ChatResponse>
     {
         public CompletionModels Model;
         public Shader ResultAsset;
+        public DefaultAsset OutputDirectory;
+
         [TextArea(3, 10)]
         public string Prompt;
 
