@@ -34,6 +34,7 @@ namespace com.recursiverhapsody
         private IEnumerator<string> AdvanceLoadingBar()
         {
             var loadingBar = inspector.Q("Request_Progress") as ProgressBar;
+            loadingBar.value = 1;
             var interval = 0.5f;
             var lastTime = Time.realtimeSinceStartup;
             while (loadingInProgress)
