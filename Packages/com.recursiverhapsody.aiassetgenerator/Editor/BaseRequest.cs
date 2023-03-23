@@ -97,9 +97,6 @@ namespace com.recursiverhapsody
                     case UnityWebRequest.Result.Success:
                         Debug.Log(webRequest.downloadHandler.text);
                         yield return JsonUtility.FromJson<T>(webRequest.downloadHandler.text);
-                        // yield return r.choices[0].message.content; //webRequest.downloadHandler.text;
-                        // var responseJson = JsonUtility.FromJson<T>(webRequest.downloadHandler.text);
-                        // callback(responseJson);
                         break;
                 }
             }

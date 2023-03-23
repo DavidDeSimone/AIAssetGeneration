@@ -14,6 +14,6 @@ namespace com.recursiverhapsody
 
     public class BaseGeneratorSettings : ScriptableObject
     {
-        public TextAsset APIKeyPath;
+        public TextAsset APIKey;
     }
 }

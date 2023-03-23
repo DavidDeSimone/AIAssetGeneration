@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using System.IO;
 
 namespace com.recursiverhapsody
 {
 
-    [CreateAssetMenu(menuName = "RecursiveRhapsody/BasicTextGeneratorSettings")]
-    public class BasicTextGeneratorSettings : BaseGeneratorSettings, IGeneratorSettings<ChatResponse>
+    [CreateAssetMenu(menuName = "RecursiveRhapsody/ShaderGeneratorSettings")]
+    public class ShaderGeneratorSettings : BaseGeneratorSettings, IGeneratorSettings<ChatResponse>
     {
-        public TextAsset ResultAsset;
+        public Shader ResultAsset;
         [TextArea(3, 10)]
         public string Prompt;
 
@@ -26,7 +27,7 @@ namespace com.recursiverhapsody
                 messages = new List<Message>() {
                     new Message() {
                         role = Roles.User,
-                        content = Prompt,
+                        content = $"Generate a Unity shader using the following prompt, only respond with the unity shader. {Prompt}",
                     }
                 }
             });

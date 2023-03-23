@@ -7,8 +7,8 @@ using System.IO;
 
 namespace com.recursiverhapsody
 {
-    [CustomEditor(typeof(BasicTextGeneratorSettings))]
-    public class BasicTextGeneratorSettings_Inspector : Editor
+    [CustomEditor(typeof(ShaderGeneratorSettings))]
+    public class ShaderGeneratorSettings_Inspector : Editor
     {
 
         public VisualTreeAsset m_InspectorXML;
@@ -30,7 +30,7 @@ namespace com.recursiverhapsody
 
         public void OnGenerateClicked()
         {
-            var ro = serializedObject.targetObject as BasicTextGeneratorSettings;
+            var ro = serializedObject.targetObject as ShaderGeneratorSettings;
             ro.SendRequest(delegate(ChatResponse result) {
                 var resultText = result.choices[0].message.content;
                 var label = inspector.Q("Result_Box") as TextField;
