@@ -27,7 +27,7 @@ namespace com.recursiverhapsody
                 messages = new List<Message>() {
                     new Message() {
                         role = Roles.User,
-                        content = $"Generate a Unity C# script using the following prompt. Only respond with the script, do not provide any additional explanation. The first generated monobehavior should have the name {ResultAsset.name}. The prompt is: {Prompt}",
+                        content = $"Generate a Unity C# script using the following prompt. Only respond with the script, do not provide any additional explanation. If you generate a monobehavior, the first generated monobehavior should have the name {ResultAsset.name}. The prompt is: {Prompt}",
                     }
                 }
             });
