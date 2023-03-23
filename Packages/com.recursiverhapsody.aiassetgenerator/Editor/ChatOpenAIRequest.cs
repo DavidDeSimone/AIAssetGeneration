@@ -71,7 +71,7 @@ namespace com.recursiverhapsody
         }
 
 
-    public class ChatOpenAIRequest : BaseOpenAIRequest<string>
+    public class ChatOpenAIRequest : BaseOpenAIRequest<ChatResponse>
     {
         protected ChatParameters parameters;
 

@@ -30,29 +30,11 @@ namespace com.recursiverhapsody
 
         public void OnGenerateClicked()
         {
-            var prompt = serializedObject.FindProperty("Prompt").stringValue;
-            Debug.Log("On Click..." + prompt);
-            var apiKeyAsset = serializedObject.FindProperty("APIKeyPath").objectReferenceValue as TextAsset;
-
-            var request = new ChatOpenAIRequest(apiKeyAsset.text, new ChatParameters () {
-                model = ChatModel.ChatGPT_3_5,
-                messages = new List<Message>() {
-                    new Message() {
-                        role = Roles.User,
-                        content = prompt,
-                    }
-                }
-            });
-            // EditorUtility.DisplayProgressBar("Simple Progress Bar", "Doing some work...", 0.5f);
-            request.SendRequest(delegate(string result) {
-                Debug.Log("Looped Back " + result);
+            var ro = serializedObject.targetObject as BasicTextGeneratorSettings;
+            ro.SendRequest(delegate(ChatResponse result) {
                 var label = inspector.Q("Result_Box") as Label;
-                label.text = result;
-
-
-
+                label.text = result.choices[0].message.content;
             });
-            // EditorUtility.ClearProgressBar();
         }
     }
 

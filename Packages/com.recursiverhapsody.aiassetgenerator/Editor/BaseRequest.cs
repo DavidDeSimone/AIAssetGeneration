@@ -72,15 +72,12 @@ namespace com.recursiverhapsody
 
         private IEnumerator Request()
         {
-            Debug.Log("Requesting.....");
-
             using (var webRequest = getWebRequest()) {
                 setContentHeaders(webRequest);
                 webRequest.downloadHandler = (DownloadHandler) new DownloadHandlerBuffer();
                 webRequest.disposeUploadHandlerOnDispose = true;
                 webRequest.disposeDownloadHandlerOnDispose = true;
 
-                Debug.Log("Sending Request...");
                 yield return webRequest.SendWebRequest();
 
                 while (webRequest.isDone == false)
@@ -99,7 +96,8 @@ namespace com.recursiverhapsody
                         break;
                     case UnityWebRequest.Result.Success:
                         Debug.Log(webRequest.downloadHandler.text);
-                        yield return webRequest.downloadHandler.text;
+                        yield return JsonUtility.FromJson<ChatResponse>(webRequest.downloadHandler.text);
+                        // yield return r.choices[0].message.content; //webRequest.downloadHandler.text;
                         // var responseJson = JsonUtility.FromJson<T>(webRequest.downloadHandler.text);
                         // callback(responseJson);
                         break;

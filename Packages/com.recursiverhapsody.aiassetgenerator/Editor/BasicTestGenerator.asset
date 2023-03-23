@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BasicTestGenerator
   m_EditorClassIdentifier: 
   APIKeyPath: {fileID: 4900000, guid: 2d8f1071f4b124d48a156a75e7a6897c, type: 3}
-  Prompt: Hello ChatGPT
+  Prompt: Generate some NPC dialog

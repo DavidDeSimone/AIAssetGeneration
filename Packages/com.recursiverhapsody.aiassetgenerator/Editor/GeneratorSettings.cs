@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace com.recursiverhapsody
 {
 
-    // [CreateAssetMenu(menuName = "RecursiveRhapsody/GlobalGeneratorSettings")]
+    public interface IGeneratorSettings<T>
+    where T: class
+    {
+        public void SendRequest(Action<T> action = null);
+    }
+
     public class BaseGeneratorSettings : ScriptableObject
     {
         public TextAsset APIKeyPath;
-        // [TextArea(3, 10)]
-        // public string Prompt;
     }
 }

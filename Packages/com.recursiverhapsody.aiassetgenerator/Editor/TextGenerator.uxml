@@ -1,5 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:Foldout text="Settings" name="Default_Inspector" />
     <ui:Button text="Generate" display-tooltip-when-elided="true" name="Generate_Button" binding-path="OnClick" />
-    <ui:Label text="This is the result of your query" display-tooltip-when-elided="true" name="Result_Box" style="-unity-text-align: middle-center; height: 122px; top: 50px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);" />
+    <ui:ScrollView style="height: 238px;">
+        <ui:Label text="Results" display-tooltip-when-elided="true" name="Result_Box" style="-unity-text-align: middle-center; height: auto; top: auto; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); white-space: normal; width: auto; flex-wrap: nowrap; flex-direction: column; -unity-background-scale-mode: stretch-to-fill; overflow: visible; display: flex; min-width: auto; min-height: auto; max-width: none; max-height: none;" />
+    </ui:ScrollView>
 </ui:UXML>
