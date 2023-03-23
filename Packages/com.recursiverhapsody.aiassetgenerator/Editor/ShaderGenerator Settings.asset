@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   APIKey: {fileID: 4900000, guid: 2d8f1071f4b124d48a156a75e7a6897c, type: 3}
   ResultAsset: {fileID: 4800000, guid: 6fc1e664b7799483a8690730de0de1d7, type: 3}
-  Prompt: 'A shader that will outline an object with an orage outline. '
+  Prompt: 'A unity shaders that will outline an sphere with an orange outline. '

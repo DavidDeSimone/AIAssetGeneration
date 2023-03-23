@@ -4,7 +4,7 @@ Shader "Custom/OutlineSphere" {
     Properties {
         _MainTex ("Texture", 2D) = "white" {}
         _OutlineColor ("Outline Color", Color) = (1,0.5,0,1)
-        _OutlineWidth ("Outline Width", Range (0.001, 0.03)) = 0.01
+        _OutlineWidth ("Outline Width", Range (1.0, 3.0)) = 1.5
     }
 
     SubShader {
