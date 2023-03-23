@@ -9,7 +9,6 @@ namespace com.recursiverhapsody
 {
     public abstract class BaseInspector : Editor
     {
-
         public VisualTreeAsset m_InspectorXML;
         protected VisualElement inspector;
         protected bool loadingInProgress;
