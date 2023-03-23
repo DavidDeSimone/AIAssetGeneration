@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BasicImageGenerator
   m_EditorClassIdentifier: 
   APIKey: {fileID: 4900000, guid: 2d8f1071f4b124d48a156a75e7a6897c, type: 3}
-  ResultAsset: {fileID: 2800000, guid: 860da3451a7b546a8af2da9f7a923cd9, type: 3}
-  Prompt: 'A pixelized 32bit video game stylized background of a spaceship. This
-    background should have a bright and visual color pallete. '
+  ResultAsset: {fileID: 2800000, guid: ab4387dfb5bc04e58b87895e9aced06b, type: 3}
+  Prompt: 'Draw a square image of a repeating texture pattern. This image should
+    take up the entire available pixel space. It should be a minecraft style stone
+    texture. '

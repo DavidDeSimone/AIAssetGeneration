@@ -43,7 +43,7 @@ namespace com.recursiverhapsody
         public float top_p = 1.0f;
         public int n = 1;
         public bool stream = false;
-        // public int max_tokens = int.MaxValue;
+        public int max_tokens = int.MaxValue;
         public float presence_penalty = 0.0f;
         public float frequency_penalty = 0.0f;
     }

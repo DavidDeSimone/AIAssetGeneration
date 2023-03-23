@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7bd06fca3814f6ab819733edc456ed, type: 3}
   m_Name: BasicImageVariationGenerator
   m_EditorClassIdentifier: 
-  APIKey: {fileID: 0}
-  ReferenceAsset: {fileID: 0}
-  ResultAsset: {fileID: 0}
+  APIKey: {fileID: 4900000, guid: 2d8f1071f4b124d48a156a75e7a6897c, type: 3}
+  ReferenceAsset: {fileID: 2800000, guid: 860da3451a7b546a8af2da9f7a923cd9, type: 3}
+  ResultAsset: {fileID: 2800000, guid: a228f3a8a236e4f3a839332a3397005d, type: 3}
