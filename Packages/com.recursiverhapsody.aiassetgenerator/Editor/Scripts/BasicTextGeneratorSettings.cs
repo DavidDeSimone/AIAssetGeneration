@@ -7,7 +7,7 @@ using System;
 namespace com.recursiverhapsody
 {
 
-    [CreateAssetMenu(menuName = "RecursiveRhapsody/BasicTextGeneratorSettings")]
+    [CreateAssetMenu(menuName = "RecursiveRhapsody/Basic/TextGeneratorSettings")]
     public class BasicTextGeneratorSettings : BaseGeneratorSettings, IGeneratorSettings<ChatResponse>
     {
         public TextAsset ResultAsset;

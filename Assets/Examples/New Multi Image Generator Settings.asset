@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db48bfbc98e8f46dda9c5b1b9c7578d6, type: 3}
-  m_Name: ScriptGenerator
+  m_Script: {fileID: 11500000, guid: e5f940b92e33541b1b01c56a1a9773b6, type: 3}
+  m_Name: New Multi Image Generator Settings
   m_EditorClassIdentifier: 
-  ResultAsset: {fileID: 11500000, guid: 5205a7e9d610e481e8b607f1d38d29d0, type: 3}
-  Prompt: 'Write a monobehavior that will slowly scale  a game object up in size. '
+  NumberOfImages: 0
+  ImageSize: 0
+  OutputDirectory: {fileID: 0}
+  Prompt: 

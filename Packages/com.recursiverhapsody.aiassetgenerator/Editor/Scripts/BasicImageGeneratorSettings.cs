@@ -8,7 +8,7 @@ namespace com.recursiverhapsody
 {
     // @TODO(DDS) Make a version that always dumps the image to a dir
     // that should be the default. Inplace should be specialized.
-    [CreateAssetMenu(menuName = "RecursiveRhapsody/BasicImageGeneratorSettings")]
+    [CreateAssetMenu(menuName = "RecursiveRhapsody/Basic/ImageGeneratorSettings")]
     public class BasicImageGeneratorSettings : BaseGeneratorSettings, IGeneratorSettings<ImageResponse>
     {
         public Texture2D ResultAsset;

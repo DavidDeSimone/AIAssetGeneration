@@ -6,7 +6,7 @@ using System;
 
 namespace com.recursiverhapsody
 {
-    [CreateAssetMenu(menuName = "RecursiveRhapsody/BasicImageEditGeneratorSettings")]
+    [CreateAssetMenu(menuName = "RecursiveRhapsody/Basic/ImageEditGeneratorSettings")]
     public class BasicImageEditGeneratorSettings : BaseGeneratorSettings, IGeneratorSettings<ImageResponse>
     {
         public Texture2D ReferenceAsset;

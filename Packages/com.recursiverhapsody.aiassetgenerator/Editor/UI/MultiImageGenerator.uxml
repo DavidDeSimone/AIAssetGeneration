@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Foldout text="Settings" name="Default_Inspector" />
+    <ui:Button text="Generate" display-tooltip-when-elided="true" name="Generate_Button" binding-path="OnClick" style="padding-top: 1px; padding-bottom: 1px; margin-top: 15px; margin-bottom: 15px;" />
+    <ui:ProgressBar value="1" title="Request Status" name="Request_Progress" style="margin-top: 10px; margin-bottom: 10px; display: none; color: rgb(255, 255, 255); font-size: 12px;" />
+    <ui:ScrollView style="height: 238px; top: 20px; -unity-text-outline-width: 1px;">
+        <ui:VisualElement name="Result_Image_1" tabindex="1" style="height: 238px; -unity-text-outline-color: rgb(255, 255, 255); -unity-text-outline-width: 3px;" />
+        <ui:VisualElement name="Result_Image_2" tabindex="1" style="height: 238px; -unity-text-outline-color: rgb(255, 255, 255); -unity-text-outline-width: 3px;" />
+        <ui:VisualElement name="Result_Image_3" tabindex="1" style="height: 238px; -unity-text-outline-color: rgb(255, 255, 255); -unity-text-outline-width: 3px;" />
+        <ui:VisualElement name="Result_Image_4" tabindex="1" style="height: 238px; -unity-text-outline-color: rgb(255, 255, 255); -unity-text-outline-width: 3px;" />
+    </ui:ScrollView>
+</ui:UXML>
