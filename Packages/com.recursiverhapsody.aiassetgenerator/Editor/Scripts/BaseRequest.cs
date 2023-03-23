@@ -126,7 +126,6 @@ namespace com.recursiverhapsody
             {
                 yield return ((DownloadHandlerTexture) webRequest.downloadHandler).texture;
             }
-                // YourRawImage.texture = ((DownloadHandlerTexture) webRequest.downloadHandler).texture;
         }
     }
 }

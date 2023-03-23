@@ -16,8 +16,6 @@ namespace com.recursiverhapsody
 
     public class BasicImageSizes
     {
-        public const string ImageSize_64_64 = "64x64";
-        public const string ImageSize_128_128 = "128x128";
         public const string ImageSize_256_256 = "256x256";
         public const string ImageSize_512_512 = "512x512";
         public const string ImageSize_1024_1024 = "1024x1024";
