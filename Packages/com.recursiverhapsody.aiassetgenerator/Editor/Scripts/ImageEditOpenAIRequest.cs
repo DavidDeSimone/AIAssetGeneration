@@ -88,10 +88,7 @@ namespace com.recursiverhapsody
             form.AddField("size", parameters.size);
             form.AddField("response_format", parameters.response_format);
 
-            var request = UnityWebRequest.Post("https://api.openai.com/v1/images/edits", form);
-            
-            // var bodyRaw = Encoding.UTF8.GetBytes(json);
-            // request.uploadHandler = (UploadHandler) new UploadHandlerRaw(bodyRaw);
+            var request = UnityWebRequest.Post("https://api.openai.com/v1/images/edits", form);            
             return request;
         }
     }
