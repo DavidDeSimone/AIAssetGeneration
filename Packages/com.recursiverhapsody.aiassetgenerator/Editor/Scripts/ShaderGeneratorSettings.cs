@@ -11,6 +11,7 @@ namespace com.recursiverhapsody
     [CreateAssetMenu(menuName = "RecursiveRhapsody/ShaderGeneratorSettings")]
     public class ShaderGeneratorSettings : BaseGeneratorSettings, IGeneratorSettings<ChatResponse>
     {
+        public CompletionModels Model;
         public Shader ResultAsset;
         [TextArea(3, 10)]
         public string Prompt;
@@ -22,8 +23,9 @@ namespace com.recursiverhapsody
                 throw new NullReferenceException($"No API Key is set for {name}. Please set a valid OpenAI API Key. If you do not have one, you can get one at https://platform.openai.com/overview");
             }
             
+            var model = CompletionModelNames.MapEnumToName(Model);
             var request = new ChatOpenAIRequest(APIKey, new ChatParameters () {
-                model = ChatModel.ChatGPT_3_5,
+                model = model,
                 messages = new List<Message>() {
                     new Message() {
                         role = Roles.User,
