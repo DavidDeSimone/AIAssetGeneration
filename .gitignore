@@ -42,15 +42,9 @@ Thumbs.db
 # ============= #
 *.apk
 *.unitypackage
-*.meta
 *.DS_Store
 *.pdf
 *.zip
 *.rar
-*.mp4
-*.jpg
-*.jpeg
-*.gif
-*.bmp
 
 MyApiKey.txt
