@@ -2,6 +2,6 @@
     <ui:Foldout text="Settings" name="Default_Inspector" />
     <ui:Button text="Generate" display-tooltip-when-elided="true" name="Generate_Button" binding-path="OnClick" />
     <ui:ScrollView style="height: 238px;">
-        <ui:TextField picking-mode="Ignore" label="Results" value="filler text" text="filler text" name="Result_Box" multiline="true" style="height: auto; width: auto; overflow: visible; flex-direction: column;" />
+        <ui:TextField picking-mode="Ignore" label="Results" value="This will display your output" text="filler text" name="Result_Box" multiline="true" style="height: auto; width: auto; overflow: visible; flex-direction: column;" />
     </ui:ScrollView>
 </ui:UXML>
