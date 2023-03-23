@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Foldout text="Settings" name="Default_Inspector" />
+    <ui:Button text="Generate" display-tooltip-when-elided="true" name="Generate_Button" binding-path="OnClick" />
+</ui:UXML>
