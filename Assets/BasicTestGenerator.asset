@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   APIKey: {fileID: 4900000, guid: 2d8f1071f4b124d48a156a75e7a6897c, type: 3}
   ResultAsset: {fileID: 4900000, guid: 10740b70c541b472f96bfe76049f9e0f, type: 3}
-  Prompt: 
+  Prompt: Generate some video game NPC dialog

@@ -19,7 +19,7 @@ namespace com.recursiverhapsody
                 throw new NullReferenceException($"No API Key is set for {name}. Please set a valid OpenAI API Key. If you do not have one, you can get one at https://platform.openai.com/overview");
             }
             
-            var request = new ImageVariationOpenAIRequest(APIKey.text, new ImageVariationParameters () {
+            var request = new ImageVariationOpenAIRequest(APIKey, new ImageVariationParameters () {
                 image = ReferenceAsset,
             });
 

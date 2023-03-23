@@ -4,40 +4,29 @@ using UnityEngine.UIElements;
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
+using System;
+using System.Collections;
+using System.Text;
 
 namespace com.recursiverhapsody
 {
     [CustomEditor(typeof(BasicTextGeneratorSettings))]
-    public class BasicTextGeneratorSettings_Inspector : Editor
+    public class BasicTextGeneratorSettings_Inspector : BaseInspector
     {
 
-        public VisualTreeAsset m_InspectorXML;
-        private VisualElement inspector;
-
-        public override VisualElement CreateInspectorGUI()
-        {
-            inspector = new VisualElement();
-            m_InspectorXML.CloneTree(inspector);
-
-            var inspectorFoldout = inspector.Q("Default_Inspector");
-            InspectorElement.FillDefaultInspector(inspectorFoldout, serializedObject, this);
-
-            var button = inspector.Query("Generate_Button").First() as Button;
-            button.clicked += OnGenerateClicked;
-
-            return inspector;
-        }
-
-        public void OnGenerateClicked()
+        public override void OnGenerateClicked()
         {
             var ro = serializedObject.targetObject as BasicTextGeneratorSettings;
             ro.SendRequest(delegate(ChatResponse result) {
                 var resultText = result.choices[0].message.content;
                 var label = inspector.Q("Result_Box") as TextField;
                 label.value = resultText;
+                label.style.display = DisplayStyle.Flex;
 
                 File.WriteAllText(AssetDatabase.GetAssetPath(ro.ResultAsset), resultText);
                 EditorUtility.SetDirty(ro.ResultAsset);
+                loadingInProgress = false;
             });
         }
     }

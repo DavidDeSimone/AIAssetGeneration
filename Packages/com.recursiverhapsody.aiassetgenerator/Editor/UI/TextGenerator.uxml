@@ -1,7 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:Foldout text="Settings" name="Default_Inspector" />
-    <ui:Button text="Generate" display-tooltip-when-elided="true" name="Generate_Button" binding-path="OnClick" />
-    <ui:ScrollView style="height: 238px;">
-        <ui:TextField picking-mode="Ignore" label="Results" value="This will display your output" text="filler text" name="Result_Box" multiline="true" style="height: auto; width: auto; overflow: visible; flex-direction: column;" />
+    <ui:Button text="Generate" display-tooltip-when-elided="true" name="Generate_Button" binding-path="OnClick" style="padding-top: 1px; padding-bottom: 1px; margin-top: 15px; margin-bottom: 15px;" />
+    <ui:ScrollView tabindex="1" style="height: 238px;">
+        <ui:ProgressBar value="0" title="Request Status" name="Request_Progress" tabindex="0" focusable="false" style="display: none; top: auto; bottom: auto; margin-top: 5px; margin-bottom: 5px;" />
+        <ui:TextField picking-mode="Ignore" label="Results" value="This will display your output" text="filler text" name="Result_Box" multiline="true" tabindex="0" style="height: auto; width: auto; overflow: visible; flex-direction: column; display: none;" />
     </ui:ScrollView>
 </ui:UXML>

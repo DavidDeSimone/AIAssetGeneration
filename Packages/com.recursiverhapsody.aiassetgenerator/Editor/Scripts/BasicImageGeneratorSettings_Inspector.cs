@@ -8,28 +8,13 @@ using System.IO;
 namespace com.recursiverhapsody
 {
     [CustomEditor(typeof(BasicImageGeneratorSettings))]
-    public class BasicImageGeneratorSettings_Inspector : Editor
+    public class BasicImageGeneratorSettings_Inspector : BaseInspector
     {
-
-        public VisualTreeAsset m_InspectorXML;
-        private VisualElement inspector;
-
-        public override VisualElement CreateInspectorGUI()
+        public override void OnGenerateClicked()
         {
-            inspector = new VisualElement();
-            m_InspectorXML.CloneTree(inspector);
+            var loadingBar = inspector.Q("Request_Progress") as ProgressBar;
+            loadingBar.style.display = DisplayStyle.Flex;
 
-            var inspectorFoldout = inspector.Q("Default_Inspector");
-            InspectorElement.FillDefaultInspector(inspectorFoldout, serializedObject, this);
-
-            var button = inspector.Query("Generate_Button").First() as Button;
-            button.clicked += OnGenerateClicked;
-
-            return inspector;
-        }
-
-        public void OnGenerateClicked()
-        {
             var ro = serializedObject.targetObject as BasicImageGeneratorSettings;
             ro.SendRequest(delegate(ImageResponse result) {
                 BaseOpenAIRequest<Texture2D>.RequestImage(result.data[0].url, delegate(Texture2D tex) {
@@ -39,6 +24,7 @@ namespace com.recursiverhapsody
                     File.WriteAllBytes(AssetDatabase.GetAssetPath(ro.ResultAsset), tex.EncodeToPNG());
                     EditorUtility.SetDirty(ro.ResultAsset);
                     AssetDatabase.Refresh();
+                    loadingInProgress = false;
                 });
             });
         }

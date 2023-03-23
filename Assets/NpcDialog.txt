@@ -1,54 +1,21 @@
 
 
-Shader "Custom/Orange Outline" {
-    Properties {
-        _MainTex ("Texture", 2D) = "white" {}
-        _OutlineColor ("Outline Color", Color) = (1,0.5,0,1)
-        _OutlineWidth ("Outline Width", Range(0.01,0.1)) = 0.05
-    } 
+NPC1: "Greetings adventurer! You seem new here. Allow me to introduce myself, I'm Mira, the local blacksmith. I can provide you with the best weapons and armor, perfect for any battle you may face."
 
-    SubShader {
-        Tags {"Queue"="Transparent" "RenderType"="Opaque"}
-        LOD 100
-    
-        Pass {
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            #include "UnityCG.cginc"
-    
-            struct appdata {
-                float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
-            };
-    
-            struct v2f {
-                float2 uv : TEXCOORD0;
-                float4 vertex : SV_POSITION;
-            };
-    
-            float _OutlineWidth;
-            float4 _OutlineColor;
-    
-            v2f vert (appdata v) {
-                v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv.xy;
-                return o;
-            }
-    
-            float4 frag (v2f i) : SV_Target {
-                float4 col = tex2D(_MainTex, i.uv);
-                float4 outline = tex2D(_MainTex, i.uv + float2(1,0) * _OutlineWidth);
-                outline += tex2D(_MainTex, i.uv + float2(0,1) * _OutlineWidth);
-                outline += tex2D(_MainTex, i.uv + float2(-1,0) * _OutlineWidth);
-                outline += tex2D(_MainTex, i.uv + float2(0,-1) * _OutlineWidth);
-                outline /= 4.0;
-                col = lerp(col, _OutlineColor, (1.0 - outline.a));
-                return col;
-            }
-            ENDCG
-        }
-    }
-    FallBack "Diffuse"
-}
+NPC2: "Oh, it's you! That legendary hero we've heard so much about! Please, tell me, what quests are you currently undertaking? Maybe I can be of some assistance."
+
+NPC3: "Beware, traveler. These lands are dangerous and filled with treachery. The monsters that roam this area are fierce and relentless in their pursuit of their prey. Make sure you are well-prepared before setting forth."
+
+NPC4: "What's the matter hero? Seems like you're looking for something. Maybe I can help? I know this land like the back of my hand!"
+
+NPC5: "Welcome to our humble town! We may not have much, but we make up for it in hospitality. Feel free to explore at your leisure!" 
+
+NPC6: "I heard rumors of a powerful artifact that lies deep within the dungeons. It's said to be guarded by a great dragon. Are you seeking the artifact as well? Careful, that dragon is not to be underestimated."
+
+NPC7: "We've been having trouble with bandits stealing from the merchants lately. If you could help us deal with them, we would be eternally grateful. The merchants will even reward you for your efforts." 
+
+NPC8: "It's been ages since anybody has explored the forbidden temple. I wonder what treasures and secrets it holds. You're brave enough to give it a shot, right?" 
+
+NPC9: "Do you need a guide to help you navigate through the mountains? It's treacherous and easy to get lost. But, with a trusty guide like me, you'll be able to find your way in no time." 
+
+NPC10: "I heard that the king is hiring knights to join the royal guard. If you're interested in serving the kingdom, you should go ask the king himself."

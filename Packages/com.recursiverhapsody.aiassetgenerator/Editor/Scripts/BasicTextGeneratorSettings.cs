@@ -21,7 +21,7 @@ namespace com.recursiverhapsody
                 throw new NullReferenceException($"No API Key is set for {name}. Please set a valid OpenAI API Key. If you do not have one, you can get one at https://platform.openai.com/overview");
             }
             
-            var request = new ChatOpenAIRequest(APIKey.text, new ChatParameters () {
+            var request = new ChatOpenAIRequest(APIKey, new ChatParameters () {
                 model = ChatModel.ChatGPT_3_5,
                 messages = new List<Message>() {
                     new Message() {
