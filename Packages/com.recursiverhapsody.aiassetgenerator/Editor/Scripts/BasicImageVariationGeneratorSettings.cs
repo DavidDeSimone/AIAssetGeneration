@@ -11,6 +11,9 @@ namespace com.recursiverhapsody
     {
         public Texture2D ReferenceAsset;
         public Texture2D ResultAsset;
+        public DefaultAsset OutputDirectory;
+        [Range(1,4)]
+        public int NumberOfImages = 1;
 
         public void SendRequest(Action<ImageResponse> action = null, Action<string> error = null)
         {
@@ -21,6 +24,7 @@ namespace com.recursiverhapsody
             
             var request = new ImageVariationOpenAIRequest(APIKey, new ImageVariationParameters () {
                 image = ReferenceAsset,
+                n = NumberOfImages,
             });
 
             request.SendRequest(action, error);

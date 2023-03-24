@@ -10,7 +10,11 @@ namespace com.recursiverhapsody
     public class BasicImageEditGeneratorSettings : BaseGeneratorSettings, IGeneratorSettings<ImageResponse>
     {
         public Texture2D ReferenceAsset;
+        public Texture2D MaskAsset;
         public Texture2D ResultAsset;
+        public DefaultAsset OutputDirectory;
+        [Range(1,4)]
+        public int NumberOfImages = 1;
         [TextArea(3, 10)]
         public string Prompt;
 
@@ -23,7 +27,9 @@ namespace com.recursiverhapsody
             
             var request = new ImageEditOpenAIRequest(APIKey, new ImageEditParameters () {
                 image = ReferenceAsset,
+                mask = MaskAsset,
                 prompt = Prompt,
+                n = NumberOfImages,
             });
 
             request.SendRequest(action, error);

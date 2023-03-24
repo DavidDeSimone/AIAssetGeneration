@@ -18,8 +18,19 @@ namespace com.recursiverhapsody
                     var resultWindow = inspector.Q("Result_Image") as VisualElement;
                     resultWindow.style.backgroundImage = tex;
 
-                    File.WriteAllBytes(AssetDatabase.GetAssetPath(ro.ResultAsset), tex.EncodeToPNG());
-                    EditorUtility.SetDirty(ro.ResultAsset);
+                    if (ro.OutputDirectory != default)
+                    {
+                        var guid = System.Guid.NewGuid();
+                        File.WriteAllBytes(AssetDatabase.GetAssetPath(ro.OutputDirectory) + $"/{guid}.png", tex.EncodeToPNG());
+                        EditorUtility.SetDirty(ro.OutputDirectory);
+                    }
+
+                    if (ro.ResultAsset != default && i = 0)
+                    {
+                        File.WriteAllBytes(AssetDatabase.GetAssetPath(ro.ResultAsset), tex.EncodeToPNG());
+                        EditorUtility.SetDirty(ro.ResultAsset);
+                    }
+
                     AssetDatabase.Refresh();
                     loadingInProgress = false;
                 });
