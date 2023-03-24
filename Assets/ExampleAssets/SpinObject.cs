@@ -2,6 +2,9 @@
 
 using UnityEngine;
  
+namespace com.recursiverhapsody.examples
+{
+
 public class SpinObject : MonoBehaviour
 {
     public float rotationSpeed = 10f;
@@ -10,4 +13,6 @@ public class SpinObject : MonoBehaviour
     {
         transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
     }
+}
+
 }

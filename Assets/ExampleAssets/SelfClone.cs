@@ -2,6 +2,9 @@
 
 using UnityEngine;
 
+namespace com.recursiverhapsody.examples
+{
+
 public class SelfClone : MonoBehaviour
 {
     [SerializeField] private GameObject childPrefab;
@@ -32,4 +35,6 @@ public class SelfClone : MonoBehaviour
     {
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
     }
+}
+
 }

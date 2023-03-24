@@ -42,3 +42,4 @@ Thumbs.db
 # ============= #
 *.apk
 *.unitypackage
+Packages/com.unity.asset-store-tools/

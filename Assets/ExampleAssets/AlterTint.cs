@@ -2,6 +2,9 @@
 
 using UnityEngine;
 
+namespace com.recursiverhapsody.examples
+{
+
 public class AlterTint : MonoBehaviour
 {
     private Renderer rend;
@@ -34,4 +37,6 @@ public class AlterTint : MonoBehaviour
 
         rend.material.SetColor("_TintColor", tintColor);
     }
+}
+
 }
