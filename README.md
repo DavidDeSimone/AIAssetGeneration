@@ -1,6 +1,6 @@
 # AIAssetGeneration
 
-This project allows you to leverage [OpenAI's API](https://platform.openai.com/overview) to generate content for Unity. 
+This project allows you to leverage [OpenAI's API](https://platform.openai.com/overview) to generate content for Unity. You can check our detailed docs over at our site: https://recursiverhapsody.com/usage/
 
 ## Features
 1. Generate Scripts, Shaders, and Textures for rapid prototyping, right in editor.
