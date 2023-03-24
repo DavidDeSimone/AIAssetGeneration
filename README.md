@@ -19,7 +19,7 @@ This project allows you to leverage [OpenAI's API](https://platform.openai.com/o
 
 Example (NOTE):
 
-NOTE: Almost everything is this sample scene is AI generted. While the "SelfCLone" script is AI generated, I did make minor tweaks to it to prevent it from spawning a massive number of cloned objects.
+NOTE: Almost everything is this sample scene is AI generted. While the "SelfClone" script is AI generated, I did make minor tweaks to it to prevent it from spawning a massive number of cloned objects.
 
 
 ![output4](https://user-images.githubusercontent.com/7245174/227133884-5d36695e-41c8-4115-af72-bbcf3efefb48.gif)
