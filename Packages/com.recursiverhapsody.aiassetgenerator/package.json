@@ -3,7 +3,7 @@
   "version": "0.8.0",
   "displayName": "AI Asset Generator",
   "description": "Generate AI Assets with OpenAI.",
-  "unity": "2020.1",
+  "unity": "2021.1",
   "unityRelease": "0b5",
   "documentationUrl": "https://recursiverhapsody.com/usage/",
   "changelogUrl": "https://github.com/DavidDeSimone/AIAssetGeneration/blob/main/CHANGELOG.md",
