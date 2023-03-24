@@ -10,6 +10,7 @@ namespace com.recursiverhapsody
     public class BasicImageGeneratorSettings : BaseGeneratorSettings, IGeneratorSettings<ImageResponse>
     {
         public Texture2D ResultAsset;
+        public DefaultAsset OutputDirectory;
         [TextArea(3, 10)]
         public string Prompt;
 

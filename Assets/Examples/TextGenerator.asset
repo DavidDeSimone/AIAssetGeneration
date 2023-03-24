@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd202724cd92b14d95e08ba23dcb674, type: 3}
   m_Name: TextGenerator
   m_EditorClassIdentifier: 
+  Model: 0
   ResultAsset: {fileID: 4900000, guid: 92d9c6c0e45625845b45c029e81b7288, type: 3}
-  Prompt: 
+  Prompt: This is your prompt

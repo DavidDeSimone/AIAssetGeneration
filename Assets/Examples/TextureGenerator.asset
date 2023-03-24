@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TextureGenerator
   m_EditorClassIdentifier: 
   ResultAsset: {fileID: 2800000, guid: be07db98ba84a47cc86b9f4fd3c4833a, type: 3}
+  OutputDirectory: {fileID: 102900000, guid: 570c62c89d5fa48a0b835a4dd4365b6c, type: 3}
   Prompt: 'Generate a 2D texture. This texture will be applied to a 3D object. This
     texture will have a repeating pattern and will take up the entire available pixel
     space. This texture should have a tiger stripe pattern. '
