@@ -27,7 +27,7 @@ namespace com.recursiverhapsody
                             EditorUtility.SetDirty(ro.OutputDirectory);
                         }
 
-                        if (ro.ResultAsset != default && i = 0)
+                        if (ro.ResultAsset != default && i == 0)
                         {
                             File.WriteAllBytes(AssetDatabase.GetAssetPath(ro.ResultAsset), tex.EncodeToPNG());
                             EditorUtility.SetDirty(ro.ResultAsset);

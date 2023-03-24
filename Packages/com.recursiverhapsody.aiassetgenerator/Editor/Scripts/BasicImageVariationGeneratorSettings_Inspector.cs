@@ -14,26 +14,29 @@ namespace com.recursiverhapsody
         {
             var ro = serializedObject.targetObject as BasicImageVariationGeneratorSettings;
             ro.SendRequest(delegate(ImageResponse result) {
-                BaseOpenAIRequest<Texture2D>.RequestImage(result.data[0].url, delegate(Texture2D tex) {
-                    var resultWindow = inspector.Q("Result_Image") as VisualElement;
-                    resultWindow.style.backgroundImage = tex;
+                for (var i = 0; i < result.data.Count; ++i)
+                {
+                    BaseOpenAIRequest<Texture2D>.RequestImage(result.data[i].url, delegate(Texture2D tex) {
+                        var resultWindow = inspector.Q("Result_Image") as VisualElement;
+                        resultWindow.style.backgroundImage = tex;
 
-                    if (ro.OutputDirectory != default)
-                    {
-                        var guid = System.Guid.NewGuid();
-                        File.WriteAllBytes(AssetDatabase.GetAssetPath(ro.OutputDirectory) + $"/{guid}.png", tex.EncodeToPNG());
-                        EditorUtility.SetDirty(ro.OutputDirectory);
-                    }
+                        if (ro.OutputDirectory != default)
+                        {
+                            var guid = System.Guid.NewGuid();
+                            File.WriteAllBytes(AssetDatabase.GetAssetPath(ro.OutputDirectory) + $"/{guid}.png", tex.EncodeToPNG());
+                            EditorUtility.SetDirty(ro.OutputDirectory);
+                        }
 
-                    if (ro.ResultAsset != default && i = 0)
-                    {
-                        File.WriteAllBytes(AssetDatabase.GetAssetPath(ro.ResultAsset), tex.EncodeToPNG());
-                        EditorUtility.SetDirty(ro.ResultAsset);
-                    }
+                        if (ro.ResultAsset != default && i == 0)
+                        {
+                            File.WriteAllBytes(AssetDatabase.GetAssetPath(ro.ResultAsset), tex.EncodeToPNG());
+                            EditorUtility.SetDirty(ro.ResultAsset);
+                        }
 
-                    AssetDatabase.Refresh();
-                    loadingInProgress = false;
-                });
+                        AssetDatabase.Refresh();
+                        loadingInProgress = false;
+                    });
+                }
             }, OnError);
         }
     }
