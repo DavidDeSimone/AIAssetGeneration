@@ -19,6 +19,25 @@ namespace com.recursiverhapsody
         public const string ImageSize_256_256 = "256x256";
         public const string ImageSize_512_512 = "512x512";
         public const string ImageSize_1024_1024 = "1024x1024";
+
+        public static string ConvertFromEnum(ImageSelectionSize imageSize)
+        {
+            var size = BasicImageSizes.ImageSize_1024_1024;
+            switch (imageSize)
+            {
+                case ImageSelectionSize.x1024x1024: 
+                    size = BasicImageSizes.ImageSize_1024_1024;
+                    break;
+                case ImageSelectionSize.x512x512:
+                    size = BasicImageSizes.ImageSize_512_512;
+                    break;
+                case ImageSelectionSize.x256x256:
+                    size = BasicImageSizes.ImageSize_256_256;
+                    break;
+            }
+
+            return size;
+        }
     }
 
     public class ImageResponseFormat

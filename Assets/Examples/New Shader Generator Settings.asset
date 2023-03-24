@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New Shader Generator Settings
   m_EditorClassIdentifier: 
   Model: 0
-  ResultAsset: {fileID: 0}
+  ResultAsset: {fileID: 4800000, guid: 6d66ceb9fb4eb0d43b473c6c39cffd97, type: 3}
   OutputDirectory: {fileID: 102900000, guid: 570c62c89d5fa48a0b835a4dd4365b6c, type: 3}
   Prompt: 'Write me a unity shader that will tint an object orange. '

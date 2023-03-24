@@ -13,6 +13,7 @@ namespace com.recursiverhapsody
         public Texture2D MaskAsset;
         public Texture2D ResultAsset;
         public DefaultAsset OutputDirectory;
+        public ImageSelectionSize ImageSize = ImageSelectionSize.x1024x1024;
         [Range(1,4)]
         public int NumberOfImages = 1;
         [TextArea(3, 10)]
@@ -25,10 +26,12 @@ namespace com.recursiverhapsody
                 throw new NullReferenceException($"No API Key is set for {name}. Please set a valid OpenAI API Key. If you do not have one, you can get one at https://platform.openai.com/overview");
             }
             
+            var size = BasicImageSizes.ConvertFromEnum(ImageSize);
             var request = new ImageEditOpenAIRequest(APIKey, new ImageEditParameters () {
                 image = ReferenceAsset,
                 mask = MaskAsset,
                 prompt = Prompt,
+                size = size,
                 n = NumberOfImages,
             });
 
