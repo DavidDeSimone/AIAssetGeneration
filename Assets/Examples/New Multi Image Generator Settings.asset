@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f940b92e33541b1b01c56a1a9773b6, type: 3}
   m_Name: New Multi Image Generator Settings
   m_EditorClassIdentifier: 
-  NumberOfImages: 1
   ImageSize: 0
   OutputDirectory: {fileID: 102900000, guid: 570c62c89d5fa48a0b835a4dd4365b6c, type: 3}
-  Prompt: 
+  NumberOfImages: 4
+  Prompt: 'Concept art of a cyberpunk city. Should feature bright colors and high
+    contrast. Primarily purple and blue. '

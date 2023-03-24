@@ -1,21 +1,21 @@
 {
   "name": "com.recursiverhapsody.aiassetgenerator",
-  "version": "0.1.0",
+  "version": "0.8.0",
   "displayName": "AI Asset Generator",
   "description": "Generate AI Assets with OpenAI.",
   "unity": "2020.1",
   "unityRelease": "0b5",
-  "documentationUrl": "https://example.com/",
-  "changelogUrl": "https://example.com/changelog.html",
-  "licensesUrl": "https://example.com/licensing.html",
+  "documentationUrl": "https://recursiverhapsody.com/usage/",
+  "changelogUrl": "https://github.com/DavidDeSimone/AIAssetGeneration/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/DavidDeSimone/AIAssetGeneration/blob/main/LICENSE.md",
   "keywords": [
-    "keyword1",
-    "keyword2",
-    "keyword3"
+    "ai",
+    "asset generation",
+    "prototype"
   ],
   "author": {
-    "name": "Unity",
-    "email": "unity@example.com",
-    "url": "https://www.unity3d.com"
+    "name": "David DeSimone",
+    "email": "feedback@recursiverhapsody.com",
+    "url": "https://recursiverhapsody.com"
   }
 }
